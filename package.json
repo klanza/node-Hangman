@@ -1,0 +1,26 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klanza/node-Hangman.git"
+  },
+  "author": "Kenneth Lanza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klanza/node-Hangman/issues"
+  },
+  "homepage": "https://github.com/klanza/node-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-google": "^0.9.1"
+  }
+}
