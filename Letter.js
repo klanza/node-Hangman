@@ -1,21 +1,21 @@
 const Letter = function(key) {
     this.letter = key;
     this.guessed = false;
-
-    this.letterDisplay = function() {
-        if (this.guessed === false) {
-            return '_';
-        }
-        return this.letter;
-    };
-    this.guess = function(input) {
-        if (input === this.letter) {
-            this.guessed = true;
-        }
-    };
 };
 
-const a = new Letter('a');
+Letter.prototype.toString = function() {
+    if (this.guessed === false) {
+        return '_';
+    }
+    return this.letter;
+};
 
-console.log(a.letterDisplay());
+Letter.prototype.guess = function(input) {
+    if (input === this.letter) {
+        this.guessed = true;
+    }
 
+    return input === this.letter;
+};
+
+module.exports = Letter;

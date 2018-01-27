@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/klanza/node-Hangman#readme",
   "dependencies": {
+    "chalk": "^2.3.0",
     "inquirer": "^5.0.1"
   },
   "devDependencies": {
