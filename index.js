@@ -12,7 +12,6 @@ let guessedLetters = [];
 let currentLength = 0;
 let wordLength = 0;
 let incorrectGuess = 7;
-var gameState;
 
 /**
  * Function to generate word.
@@ -64,33 +63,36 @@ const gameLogic = function() {
   console.log(playWord + '');
   inquirer.prompt(questions).then((answers) => {
     guessedLetters.push(answers.guess);
-    playWord.wordArray.forEach((element) => {
-      if (element.guess(answers.guess)) {
-        currentLength++;
-        let gameState = true;
-        return gameState;
-      } else {
-        gameState = false;
-        return gameState;
-      }
-    });
-    console.log(gameState);
+    if (playWord.word.includes(answers.guess)) {
+      playWord.wordArray.forEach((element) => {
+        if (element.guess(answers.guess)) {
+          currentLength++;
+        }
+      });
+    } else {
+      incorrectGuess--;
+      console.log(`You have ${incorrectGuess} guesses left!`);
+    }
     if (currentLength === wordLength) {
       console.log(playWord + '');
       console.log('You won!');
       playAgain();
-    } else if (gameState === false) {
-      incorrectGuess--;
-      console.log(`You have ${incorrectGuess} guesses left!`);
-      if (incorrectGuess === 0) {
-        console.log('Game over!');
-        playAgain();
-      } else {
-        gameLogic();
-      }
+    } else if (incorrectGuess === 0) {
+      console.log('Game over!');
+      console.log('The correct word was: ' + playWord.word);
+      playAgain();
     } else {
       gameLogic();
     }
+    //   if (incorrectGuess === 0) {
+    //     console.log('Game over!');
+    //     playAgain();
+    //   } else {
+    //     gameLogic();
+    //   }
+    // } else {
+    //   gameLogic();
+    // }
   });
 };
 console.log(currentLength);

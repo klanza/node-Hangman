@@ -1,6 +1,7 @@
 const Letter = require('./Letter.js');
 
 const Word = function(word) {
+    this.word = word;
     this.wordArray = [];
     this.solved = false;
 
